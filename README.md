@@ -26,7 +26,7 @@ JavaScript 언어로만 구현했던 jonmat-searcher 프로젝트 이후, TypeSc
 TypeScript 기반 React 개발에 대한 이해도를 높이고, 실무에 가까운 코드 구조를 경험하는 것을 목표로 합니다.<br><br><br>
 
 ## 🌐배포
-[🔗 https://movie-project-ts-eosin.vercel.app](https://movie-project-ts-eosin.vercel.app)
+[🔗 https://movie-project-nextjs-five.vercel.app](https://movie-project-nextjs-five.vercel.app)
 <br>
 <br>
 <br>
