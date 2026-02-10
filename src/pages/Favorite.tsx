@@ -67,7 +67,7 @@ export function isFavorite(favorites: movieType[], id: number): boolean {
     return favorites.some((movie) => movie.id === id);
 }
 
-export default function Favorite({ favorites, dispatch }: FavoriteProps) {
+export default function Favorite({ favorites = [], dispatch }: FavoriteProps) {
 
     // Favorite 페이지 처음 렌더링 될 때 => favorite 전체 목록 불러와 렌더링
     useEffect(() => {
@@ -80,7 +80,7 @@ export default function Favorite({ favorites, dispatch }: FavoriteProps) {
     return(
         <div className="flex bg-white dark:bg-black min-h-screen justify-center px-12 py-16">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-3">
-                {favorites.length === 0 ? (
+                {(favorites ?? []).length === 0 ? (
                     <p className="font-customBold text-center col-span-full text-lg text-gray-400">관심 있는 영화가 없슴다 -.-;;</p>
                 ) : (
                     favorites.map((movie) => (

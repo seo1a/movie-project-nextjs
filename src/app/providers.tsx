@@ -60,6 +60,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [favorites, dispatch] = useReducer(favoritesReducer, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const saved = localStorage.getItem("favorites");
     if (saved) {
       dispatch({ type: "LOAD", movies: JSON.parse(saved) });
