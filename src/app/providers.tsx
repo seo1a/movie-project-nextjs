@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useState, useEffect, useReducer, useMemo, createContext } from "react";
 import ReactGA from "react-ga4";
 import usePageTracking from "@/hooks/usePageTracking";
@@ -27,6 +28,11 @@ interface GlobalContextType {
 
 export const GlobalContext = createContext<GlobalContextType | null>(null);
 
+function PageTracker() {
+  usePageTracking();
+  return null;
+}
+
 ReactGA.initialize(process.env.NEXT_PUBLIC_GA_ID!);
 
 export default function Providers({ children }: { children: React.ReactNode }) {
@@ -34,8 +40,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [allMovies, setAllMovies] = useState<movie[]>([]);
   const [filteredMovies, setFilteredMovies] = useState<movie[]>([]);
   const [searchResults, setSearchResults] = useState<movie[]>([]);
-
-  usePageTracking();
 
   useEffect(() => {
     fetchMultiplePages().then((movies) => {
@@ -106,7 +110,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         isFavorite,
       }}
     >
-      {children}
+        <Suspense fallback={null}>
+            <PageTracker />     {/*GA4*/}
+        </Suspense>
+        {children}
     </GlobalContext.Provider>
   );
 }
