@@ -9,9 +9,9 @@ export default function Page() {
 
   return (
     <Home
-      searchResults={ctx.sortedMovies}
+      searchResults={ctx.sortedMovies ?? []}
       dispatch={ctx.dispatch}
-      favorites={ctx.favorites}
+      favorites={ctx.favorites ?? []}
       isFavorite={ctx.isFavorite}
     />
   );

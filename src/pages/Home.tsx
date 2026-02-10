@@ -15,9 +15,9 @@ interface HomeProps {
 }
 
 export default function Home({ 
-    searchResults, 
+    searchResults = [], 
     dispatch, 
-    favorites, 
+    favorites = [], 
     isFavorite 
 }: HomeProps) {
     const [sortType, setSortType] = useState<"default" | "rating" | "latest" | "oldest">("default");
