@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'MyCustomFont_Regular';
+  src: url('../../public/fonts/Freesentation-4Regular.ttf') format('truetype');
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'MyCustomFont_Bold';
+  src: url('../../public/fonts/Freesentation-7Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'MyCustomFont_Logo';
+  src: url('../../public//fonts/FontsFree-Net-Sonar-Hubermann-SaintRegus-SemiBoldExpanded.ttf') format('truetype');
+  font-display: swap;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  --font-customRegular: 'MyCustomFont_Regular', sans-serif;
+  --font-customBold: 'MyCustomFont_Bold', sans-serif;
+  --font-customLogo: 'MyCustomFont_Logo', sans-serif;
 }

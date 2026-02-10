@@ -14,9 +14,9 @@ export default function ThemeToggle() {
     // 클라이언트에서만 실행
     useEffect(() => {
         const saved = localStorage.getItem("theme");
-        if (saved === "dark" || saved === "light") {
-            setTheme(saved);
-        }
+        const initial = saved === "light" ? "light" : "dark";
+        setTheme(initial);
+        document.documentElement.classList.toggle("dark", initial === "dark");
     }, []);
 
     // theme 변경 시 저장
